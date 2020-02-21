@@ -12,16 +12,18 @@
 	<bean id="jazzMusic" class="com.rabestro.springcourse.JazzMusic">
 	</bean>
 
-	<bean id="classicalMusic"
+	<bean id="classicalMusic" init-method="init"
+		destroy-method="destroy" factory-method="getClassicalMusic"
 		class="com.rabestro.springcourse.ClassicalMusic">
 	</bean>
 
-	<bean id="rockMusic" class="com.rabestro.springcourse.RockMusic">
+	<bean id="rockMusic" class="com.rabestro.springcourse.RockMusic"
+		scope="prototype">
 	</bean>
 
-	<bean id="musicPlayer" scope="prototype" 
+	<bean id="musicPlayer" scope="prototype"
 		class="com.rabestro.springcourse.MusicPlayer">
-		<property name="music" ref="rockMusic" />
+		<property name="music" ref="classicalMusic" />
 		<property name="name" value="${musicPlayer.name}" />
 		<property name="volume" value="${musicPlayer.volume}" />
 		<property name="musicList">
