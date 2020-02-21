@@ -19,7 +19,7 @@
 	<bean id="rockMusic" class="com.rabestro.springcourse.RockMusic">
 	</bean>
 
-	<bean id="musicPlayer"
+	<bean id="musicPlayer" scope="prototype" 
 		class="com.rabestro.springcourse.MusicPlayer">
 		<property name="music" ref="rockMusic" />
 		<property name="name" value="${musicPlayer.name}" />
