@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans  xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:property-placeholder
+		location="classpath:musicPlayer.properties" />
 
-    <bean id="musicBean"
-          class="com.rabestro.springcourse.JazzMusic">
-    </bean>
-    
-    <bean id="classicalMusic"
-          class="com.rabestro.springcourse.ClassicalMusic">
-    </bean>
-        
-    <bean id="rockMusic"
-          class="com.rabestro.springcourse.RockMusic">
-    </bean>
-    
-    <bean id="musicPlayer"
-          class="com.rabestro.springcourse.MusicPlayer">
-          
-          <constructor-arg ref="rockMusic"/>
-        
-    </bean>
+	<bean id="jazzMusic" class="com.rabestro.springcourse.JazzMusic">
+	</bean>
+
+	<bean id="classicalMusic"
+		class="com.rabestro.springcourse.ClassicalMusic">
+	</bean>
+
+	<bean id="rockMusic" class="com.rabestro.springcourse.RockMusic">
+	</bean>
+
+	<bean id="musicPlayer"
+		class="com.rabestro.springcourse.MusicPlayer">
+		<property name="music" ref="rockMusic" />
+		<property name="name" value="${musicPlayer.name}" />
+		<property name="volume" value="${musicPlayer.volume}" />
+		<property name="musicList">
+			<list value-type="java.util.List">
+				<ref bean="classicalMusic" />
+				<ref bean="rockMusic" />
+				<ref bean="jazzMusic" />
+			</list>
+		</property>
+	</bean>
 </beans>
