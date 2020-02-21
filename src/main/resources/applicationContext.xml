@@ -6,19 +6,16 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+        
 	<context:property-placeholder
 		location="classpath:musicPlayer.properties" />
 
-	<bean id="jazzMusic" class="com.rabestro.springcourse.JazzMusic">
-	</bean>
+	<context:component-scan
+		base-package="com.rabestro.springcourse" />
 
 	<bean id="classicalMusic" init-method="init"
 		destroy-method="destroy" factory-method="getClassicalMusic"
 		class="com.rabestro.springcourse.ClassicalMusic">
-	</bean>
-
-	<bean id="rockMusic" class="com.rabestro.springcourse.RockMusic"
-		scope="prototype">
 	</bean>
 
 	<bean id="musicPlayer" scope="prototype"
