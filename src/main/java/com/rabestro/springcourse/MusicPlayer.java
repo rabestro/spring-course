@@ -8,9 +8,11 @@ public class MusicPlayer {
 	private List<Music> musicList = new ArrayList<>();
 	private String name;
 	private int volume;
+
 	public void playMusicList() {
-		musicList.forEach(x->System.out.println(x.getSong()));
+		musicList.forEach(music -> System.out.println("Playing: " + music.getSong()));
 	}
+
 	public List<Music> getMusicList() {
 		return musicList;
 	}
@@ -39,7 +41,7 @@ public class MusicPlayer {
 	public MusicPlayer(Music music) {
 		this.music = music;
 	}
-	
+
 	public MusicPlayer() {
 	}
 
