@@ -7,9 +7,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="helloWorld"
-          class="com.rabestro.springcourse.TestBean">
-        <constructor-arg value="Hello World!"/>
+    <bean id="musicBean"
+          class="com.rabestro.springcourse.JazzMusic">
+        
     </bean>
 
 </beans>
