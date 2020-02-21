@@ -9,7 +9,20 @@
 
     <bean id="musicBean"
           class="com.rabestro.springcourse.JazzMusic">
+    </bean>
+    
+    <bean id="classicalMusic"
+          class="com.rabestro.springcourse.ClassicalMusic">
+    </bean>
+        
+    <bean id="rockMusic"
+          class="com.rabestro.springcourse.RockMusic">
+    </bean>
+    
+    <bean id="musicPlayer"
+          class="com.rabestro.springcourse.MusicPlayer">
+          
+          <constructor-arg ref="rockMusic"/>
         
     </bean>
-
 </beans>
