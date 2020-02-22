@@ -2,18 +2,20 @@ package com.rabestro.springcourse;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.stereotype.Component;
+
+@Component("classicalMusic")
 public class ClassicalMusic implements Music {
-	private ClassicalMusic() {}
 	
-	public static ClassicalMusic getClassicalMusic() {
-		System.out.println("ClassicalMusic - Factory method");
-		return new ClassicalMusic();
-	}
-	
+	@PostConstruct
 	public void init() {
 		System.out.println("ClassicalMusic - Initialisation.");
 	}
 
+	@PreDestroy
 	public void destroy() {
 		System.out.println("ClassicalMusic - Destruction");
 	}
