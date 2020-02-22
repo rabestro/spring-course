@@ -1,6 +1,7 @@
 package com.rabestro.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import static com.rabestro.springcourse.MusicalGenre.*;
 
 public class TestSpring {
 
@@ -14,7 +15,17 @@ public class TestSpring {
 		 */
 		
 		SimpleMusicPlayer musicPlayer = context.getBean("simpleMusicPlayer", SimpleMusicPlayer.class);
-		musicPlayer.playMusic();
+		
+		musicPlayer.playMusic(CLASSIC);
+		musicPlayer.playMusic(CLASSIC);
+		musicPlayer.playMusic(CLASSIC);
+		musicPlayer.playMusic(CLASSIC);
+		musicPlayer.playMusic(ROCK);
+		musicPlayer.playMusic(ROCK);
+		musicPlayer.playMusic(ROCK);
+		musicPlayer.playMusic(JAZZ);
+		musicPlayer.playMusic(JAZZ);
+		musicPlayer.playMusic(JAZZ);
 		
 		context.close();
 	}
