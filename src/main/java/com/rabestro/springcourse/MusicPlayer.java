@@ -52,5 +52,8 @@ public class MusicPlayer {
 	public void playMusic() {
 		System.out.println("Playing: " + music.getSong());
 	}
-
+	
+	public void playMusic(MusicalGenre genre) {
+		//musicList.stream().filter(arg0)
+	}
 }

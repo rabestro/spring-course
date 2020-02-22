@@ -1,5 +1,7 @@
 package com.rabestro.springcourse;
 
+import java.util.List;
+
 public class ClassicalMusic implements Music {
 	private ClassicalMusic() {}
 	
@@ -19,5 +21,10 @@ public class ClassicalMusic implements Music {
 	@Override
 	public String getSong() {
 		return "Hungarian Rhapsody";
+	}
+
+	@Override
+	public List<String> getSongs() {
+		return List.of("Für Elise", "Voices of Spring", "Eine kleine Nachtmusik");
 	}
 }
