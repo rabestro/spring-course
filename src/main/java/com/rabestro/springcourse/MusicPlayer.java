@@ -3,11 +3,20 @@ package com.rabestro.springcourse;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
 	private Music music;
-	private List<Music> musicList = new ArrayList<>();
+	private List<Music> musicList;
 	private String name;
 	private int volume;
+	
+	@Autowired
+	public MusicPlayer(ArrayList<Music> musicList) {
+		this.musicList = musicList;
+	}
 
 	public void playMusicList() {
 		musicList.forEach(music -> System.out.println("Playing: " + music.getSong()));
@@ -37,14 +46,6 @@ public class MusicPlayer {
 		this.volume = volume;
 	}
 
-	// IoC
-	public MusicPlayer(Music music) {
-		this.music = music;
-	}
-
-	public MusicPlayer() {
-	}
-
 	public void setMusic(Music music) {
 		this.music = music;
 	}
@@ -52,8 +53,5 @@ public class MusicPlayer {
 	public void playMusic() {
 		System.out.println("Playing: " + music.getSong());
 	}
-	
-	public void playMusic(MusicalGenre genre) {
-		//musicList.stream().filter(arg0)
-	}
+
 }
